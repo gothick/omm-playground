@@ -44,14 +44,23 @@
     var base = [51.4511364, -2.6219148];
     var map = L.map('mapid').setView(base, 14);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer(
+      // 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
+      'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ290aGljayIsImEiOiJja2dyNTc0cTcwYmxpMnVvYjMxamF3OXRxIn0.boZnwXp5ttSo20qUEpf0eQ',
+      {
+        // These are mapbox-specific
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        // More general
         maxZoom: 19,
-        attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
+        // attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
       }).addTo(map);
     var circle = L.circle(base, {
       color: 'green',
       fillColor: '#faa',
-      fillOpacity: 0.2,
+      fillOpacity: 0.15,
       radius: 1609.34 // 1 mile
     }).addTo(map);
     omnivore.gpx('tracks/26 OCT 2020 0944 001.GPX').addTo(map);
