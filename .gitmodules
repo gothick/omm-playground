@@ -1,0 +1,4 @@
+[submodule "vagrant-lamp"]
+	path = vagrant-lamp
+	url = git@github.com:gothick/vagrant-lamp.git
+	branch = master
