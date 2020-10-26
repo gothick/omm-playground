@@ -1,0 +1,6 @@
+network:
+    ip_address: 192.168.4.223
+    hostname: omm.localhost
+synced_folders:
+    - { host: ~/Sites/mysites/omm-playground/html, guest: /var/www/html, owner: www-data, group: www-data, mount_options: ["dmode=777","fmode=666"]}
+
