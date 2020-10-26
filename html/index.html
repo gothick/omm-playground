@@ -39,6 +39,7 @@
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
   crossorigin=""></script>
+  <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
   <script>
     var base = [51.4511364, -2.6219148];
     var map = L.map('mapid').setView(base, 14);
@@ -53,6 +54,8 @@
       fillOpacity: 0.2,
       radius: 1609.34 // 1 mile
     }).addTo(map);
+    omnivore.gpx('tracks/26 OCT 2020 0944 001.GPX').addTo(map);
+    omnivore.kml('tracks/oldbury.kml').addTo(map);
   </script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
