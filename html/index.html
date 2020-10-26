@@ -40,12 +40,19 @@
   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
   crossorigin=""></script>
   <script>
-    var map = L.map('mapid').setView([51.4511364, -2.6219148], 15);
+    var base = [51.4511364, -2.6219148];
+    var map = L.map('mapid').setView(base, 14);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
       }).addTo(map);
+    var circle = L.circle(base, {
+      color: 'green',
+      fillColor: '#0f0',
+      fillOpacity: 0.1,
+      radius: 1609.34 // 1 mile
+    }).addTo(map);
   </script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
