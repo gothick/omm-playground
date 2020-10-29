@@ -42,10 +42,10 @@
   crossorigin=""></script>
   <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
   <script>
-    var range = 1609.34; // 1 mile
+    var locus_radius = 1609.34; // 1 mile
     var base = L.latLng(51.4511364, -2.6219148);
     var map = L.map('mapid', {
-      maxBounds: base.toBounds(range * 5) // Give a bit of wiggle room around the circle, but don't let the user drift too far away
+      maxBounds: base.toBounds(locus_radius * 5) // Give a bit of wiggle room around the circle, but don't let the user drift too far away
     }).setView(base, 14);
 
     L.tileLayer(
@@ -65,7 +65,7 @@
       color: 'green',
       fillColor: '#faa',
       fillOpacity: 0.15,
-      radius: range
+      radius: locus_radius
     }).addTo(map);
 
     var api = "/api/";
