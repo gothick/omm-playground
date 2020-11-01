@@ -80,7 +80,11 @@
     $.getJSON(api + "tracks.php", function(data) {
       var last = data.tracks.length - 1;
       $.each(data.tracks, function(key, track) {
-        omnivore.gpx(api + track, null, last == key ? customLayer : null).addTo(map);
+        omnivore.gpx(api + track, null, last == key ? customLayer : null)
+        .bindPopup(function (layer) {
+          return track;
+        })
+        .addTo(map);
       });
     });
 
