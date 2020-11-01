@@ -68,10 +68,19 @@
       radius: locus_radius
     }).addTo(map);
 
+    // Custom layer visually to set the most recent track
+    var customLayer = L.geoJson(null, {
+      // http://leafletjs.com/reference.html#geojson-style
+      style: function(feature) {
+        return { color: '#FFA500' };
+      }
+    });
+
     var api = "/api/";
     $.getJSON(api + "tracks.php", function(data) {
+      var last = data.tracks.length - 1;
       $.each(data.tracks, function(key, track) {
-        omnivore.gpx(api + track).addTo(map);
+        omnivore.gpx(api + track, null, last == key ? customLayer : null).addTo(map);
       });
     });
 
